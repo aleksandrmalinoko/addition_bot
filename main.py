@@ -11,10 +11,7 @@ from telebot.types import (
 from configparser import ConfigParser
 
 parser = ConfigParser()
-if __debug__:
-    parser.read(Path('test_init.ini').absolute())
-else:
-    parser.read(Path('init.ini').absolute())
+parser.read(Path('init.ini').absolute())
 telegram_api_token = parser['telegram']['telegram_api_token']
 sl_chat_id = parser['telegram']['sl_chat_id']
 admin_list = parser['telegram']['admin_list']
