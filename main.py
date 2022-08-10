@@ -44,6 +44,9 @@ def ad_init_message(message):
 
 
 def ad_image(message):
+    if message.text == "Отмена":
+        bot.send_message(message.chat.id, "Отменено", reply_markup=ReplyKeyboardRemove())
+        return 0
     keyboard = ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     button = KeyboardButton(text="Отмена")
     keyboard.add(button)
@@ -53,6 +56,9 @@ def ad_image(message):
 
 
 def ad_text(message, ad_photo):
+    if message.text == "Отмена":
+        bot.send_message(message.chat.id, "Отменено", reply_markup=ReplyKeyboardRemove())
+        return 0
     keyboard = ReplyKeyboardMarkup(row_width=1, resize_keyboard=True, one_time_keyboard=True)
     button = KeyboardButton(text="Не требуется")
     keyboard.add(button)
@@ -66,6 +72,9 @@ def ad_text(message, ad_photo):
 
 
 def ad_inline(message, ad_photo, ad_text, entities):
+    if message.text == "Отмена":
+        bot.send_message(message.chat.id, "Отменено", reply_markup=ReplyKeyboardRemove())
+        return 0
     buttons = []
     have_inline = 0
     if message.text != "Не требуется":
